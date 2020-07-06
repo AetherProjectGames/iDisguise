@@ -8,12 +8,24 @@
   <properties>
   	<maven.build.timestamp.format>yyyy_MM_dd-HH_mm_ss</maven.build.timestamp.format>
   </properties>
-  
+
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>../idisguise-core</module>
+		<module>../idisguise-impl-v1_8_R3</module>
+		<module>../idisguise-impl-v1_9_R2</module>
+		<module>../idisguise-impl-v1_10_R1</module>
+		<module>../idisguise-impl-v1_11_R1</module>
+		<module>../idisguise-impl-v1_12_R1</module>
+		<module>../idisguise-impl-v1_13_R2</module>
+	</modules>
+
   <repositories>
-  	<repository>
+<!--  	<repository>
   		<id>robingrether-repo</id>
   		<url>http://repo.robingrether.de/</url>
-  	</repository>
+  	</repository>-->
   </repositories>
   
   <dependencies>
@@ -22,41 +34,41 @@
   		<artifactId>idisguise-core</artifactId>
   		<version>${project.version}</version>
   		<scope>compile</scope>
-  	</dependency>
+	</dependency>
   	<dependency>
   		<groupId>de.robingrether.idisguise</groupId>
   		<artifactId>idisguise-impl-v1_13_R2</artifactId>
-  		<version>5.8.2</version>
+  		<version>${project.version}</version>
   		<scope>compile</scope>
   	</dependency>
   	<dependency>
   		<groupId>de.robingrether.idisguise</groupId>
   		<artifactId>idisguise-impl-v1_12_R1</artifactId>
-  		<version>5.8.2</version>
+  		<version>${project.version}</version>
   		<scope>compile</scope>
   	</dependency>
   	<dependency>
   		<groupId>de.robingrether.idisguise</groupId>
   		<artifactId>idisguise-impl-v1_11_R1</artifactId>
-  		<version>5.8.2</version>
+  		<version>${project.version}</version>
   		<scope>compile</scope>
   	</dependency>
   	<dependency>
   		<groupId>de.robingrether.idisguise</groupId>
   		<artifactId>idisguise-impl-v1_10_R1</artifactId>
-  		<version>5.8.2</version>
+  		<version>${project.version}</version>
   		<scope>compile</scope>
   	</dependency>
   	<dependency>
   		<groupId>de.robingrether.idisguise</groupId>
   		<artifactId>idisguise-impl-v1_9_R2</artifactId>
-  		<version>5.8.2</version>
+  		<version>${project.version}</version>
   		<scope>compile</scope>
   	</dependency>
   	<dependency>
   		<groupId>de.robingrether.idisguise</groupId>
   		<artifactId>idisguise-impl-v1_8_R3</artifactId>
-  		<version>5.8.2</version>
+  		<version>${project.version}</version>
   		<scope>compile</scope>
   	</dependency>
   </dependencies>

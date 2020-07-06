@@ -19,7 +19,7 @@
   <dependencies>
   	<dependency>
   		<groupId>org.bukkit</groupId>
-  		<artifactId>craftbukkit</artifactId>
+  		<artifactId>bukkit</artifactId>
   		<version>1.10.2-R0.1-SNAPSHOT</version>
   		<scope>provided</scope>
   	</dependency>
@@ -29,6 +29,13 @@
   		<version>${project.version}</version>
   		<scope>provided</scope>
   	</dependency>
+	  <dependency>
+		  <groupId>org.spigot</groupId>
+		  <artifactId>spigot</artifactId>
+		  <version>1.0</version>
+		  <scope>system</scope>
+		  <systemPath>${project.basedir}/libs/spigot-1.10.2-R0.1-SNAPSHOT-latest.jar</systemPath>
+	  </dependency>
   </dependencies>
   
   <build>

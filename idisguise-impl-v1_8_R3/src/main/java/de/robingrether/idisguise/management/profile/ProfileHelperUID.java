@@ -121,17 +121,19 @@ public class ProfileHelperUID extends ProfileHelper {
 					reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 					String response = reader.readLine();
 					JSONObject object = (JSONObject)JSONValue.parse(response);
-					name = (String)object.get(API_UID_NAME);
-					profile = new GameProfile(uniqueId, name);
-					JSONArray array = (JSONArray)object.get(API_UID_PROPERTIES);
-					for(Object obj : array) {
-						JSONObject property = (JSONObject)obj;
-						String propertyName = (String)property.get(API_UID_NAME);
-						profile.getProperties().put(propertyName, new Property(propertyName, (String)property.get(API_UID_VALUE), (String)property.get(API_UID_SIGNATURE)));
+					if(object != null) {
+						name = (String) object.get(API_UID_NAME);
+						profile = new GameProfile(uniqueId, name);
+						JSONArray array = (JSONArray) object.get(API_UID_PROPERTIES);
+						for (Object obj : array) {
+							JSONObject property = (JSONObject) obj;
+							String propertyName = (String) property.get(API_UID_NAME);
+							profile.getProperties().put(propertyName, new Property(propertyName, (String) property.get(API_UID_VALUE), (String) property.get(API_UID_SIGNATURE)));
+						}
+						profilesById.put(uniqueId, profile);
+						profilesByName.put(profile.getName().toLowerCase(Locale.ENGLISH), profile);
+						UserCache_putProfile.invoke(MinecraftServer_getUserCache.invoke(MinecraftServer_getServer.invoke(null)), profile);
 					}
-					profilesById.put(uniqueId, profile);
-					profilesByName.put(profile.getName().toLowerCase(Locale.ENGLISH), profile);
-					UserCache_putProfile.invoke(MinecraftServer_getUserCache.invoke(MinecraftServer_getServer.invoke(null)), profile);
 					final String skinName = name;
 					Bukkit.getScheduler().runTask(iDisguise.getInstance(), new Runnable() {
 						
